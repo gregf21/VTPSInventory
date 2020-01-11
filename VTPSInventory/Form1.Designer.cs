@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.itemTextbox = new System.Windows.Forms.TextBox();
             this.itemSearchLabel = new System.Windows.Forms.Label();
             this.itemNameLabel = new System.Windows.Forms.Label();
@@ -86,12 +87,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 232);
+            this.ClientSize = new System.Drawing.Size(870, 236);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.itemLocationLabel);
             this.Controls.Add(this.itemNameLabel);
             this.Controls.Add(this.itemSearchLabel);
             this.Controls.Add(this.itemTextbox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Inventory Search";
             this.Load += new System.EventHandler(this.Form1_Load);

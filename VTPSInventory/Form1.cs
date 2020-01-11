@@ -50,6 +50,7 @@ namespace VTPSInventory
 
         void ReadEntries()
         {
+            bool found = false;
             var range = $"{sheet}!A:B";
             SpreadsheetsResource.ValuesResource.GetRequest request =
                     service.Spreadsheets.Values.Get(SpreadsheetId, range);
@@ -60,12 +61,21 @@ namespace VTPSInventory
             {
                 foreach (var row in values)
                 {
-                    if (row[0].ToString().Contains(itemTextbox.Text))
+                    if (row.Count != 0)
                     {
-                        itemNameLabel.Text = "Item Name: " + row[0];
-                        itemLocationLabel.Text = "Item Location: " + row[1];
+                        if (row[0].ToString().ToLower().Contains(itemTextbox.Text.ToLower()))
+                        {
+                            itemNameLabel.Text = "Item Name: " + row[0];
+                            itemLocationLabel.Text = "Item Location: " + row[1];
+                            found = true;
+                        }
                     }
                 }
+            }
+            if(found == false)
+            {
+                itemNameLabel.Text = "Item Not Found";
+                itemLocationLabel.Text = "";
             }
         }
 
